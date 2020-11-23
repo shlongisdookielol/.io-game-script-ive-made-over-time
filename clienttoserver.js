@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         connect to a server from tampermonkey
+// @name         websocket client hook
 // @description  ok
 // @version      0.1
 // @author       shlong#2873
