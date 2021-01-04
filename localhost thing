@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         websocket client hook
+// @name         localhost thingy
 // @description  ok
 // @version      0.1
-// @author       shlong#2873
+// @author       enderman8686#2873
 // @match        *:///
 // ==/UserScript==
 
