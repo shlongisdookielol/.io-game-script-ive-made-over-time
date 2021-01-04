@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         (shlong scripting) Auto Boost-Pad
+// @name         Auto Boost-Pad
 // @version      1
-// @description  f to toggle on and off
-// @author       shlong#2873
+// @description  f to toggle on and off (this is old and i didnt know about msgpack when i made it)
+// @author       enderman8686#2873
 // @match        *://moomoo.io/*
 // @match        *://dev.moomoo.io/*
 // @match        *://sandbox.moomoo.io/*
