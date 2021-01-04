@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         diep.io player & shape pointer
-// @author       shlong#2873
+// @name         object pointer thing in diep
+// @author       enderman8686#2873
 // @description  button to toggle is t
 // @match        *://diep.io/
 // @run-at       document-load
@@ -14,7 +14,7 @@ CanvasRenderingContext2D.prototype.fill = function () {
     }
     Canvas.apply(this, arguments);
 };
-document.addEventListener("keydown", function (keycode) {
+document.addEventListener("keydown", (keycode) => {
     if (keycode.keyCode === 84) {
         TrackerToggle = !TrackerToggle
     }
