@@ -8,12 +8,8 @@
 
 
 let local = new WebSocket('ws://localhost:3000');
-let on = false;
 window.wshook = window.WebSocket.prototype.send;
 window.WebSocket.prototype.send = function(data) {
-    if (on === false) {
-        on = true;
-        local.send(data);
-    }
+    local.send(data);
     window.wshook.call(this, data);
 };
