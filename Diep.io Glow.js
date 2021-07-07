@@ -35,12 +35,6 @@
                 _thisArg.shadowColor = "red";
                 _thisArg.shadowBlur = 20;
             }
-            if (args[0] == "diep") {
-                _thisArg.fillStyle = "#89ff69";
-            }
-            if (args[0] == "Auto Spin: OFF") {
-                args[0] = "canvas noti lol"
-            }
             _fillText.apply(_thisArg, args);
         }
     });
