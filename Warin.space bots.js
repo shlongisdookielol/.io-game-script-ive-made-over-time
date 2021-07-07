@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         A A Warinspace Bots
+// @name         Warinspace Bots
 // @version      2
 // @author       enderman8686#2873
 // @match        http://warin.space/
