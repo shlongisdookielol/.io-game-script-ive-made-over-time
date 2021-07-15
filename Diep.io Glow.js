@@ -3,9 +3,8 @@
 // @namespace    http://tampermonkey.net/LIGMABALLS
 // @version      2
 // @description  lol
-// @author       enderman8686#2873
+// @author       shlong#2873
 // @match        *://diep.io/
-// @match        *://diep-private.binaryperson.repl.co/
 // @grant        unsafeWindow
 // ==/UserScript==
 
