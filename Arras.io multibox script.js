@@ -2,7 +2,7 @@
 // @name         Arras.io multibox script
 // @namespace    http://tampermonkey.net/k
 // @version      emo logan paul
-// @author       enderman8686#2873
+// @author       shlong#2873
 // @match        *://arras.io/*
 // @grant        GM_getValue
 // @grant        GM_setValue
