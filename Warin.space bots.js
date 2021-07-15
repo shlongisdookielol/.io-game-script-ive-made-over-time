@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Warinspace Bots
 // @version      2
-// @author       enderman8686#2873
+// @author       shlong#2873
 // @match        http://warin.space/
 // @grant        GM_getValue
 // @grant        GM_setValue
