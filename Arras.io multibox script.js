@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name         Arras.io multibox script
 // @namespace    http://tampermonkey.net/k
+// @description  press F to set your main window (sends packets to the bot windows), then press T to start the actual multibox script (recieves then sends the same packets that were sent from the main window)
 // @version      emo logan paul
 // @author       shlong#2873
 // @match        *://arras.io/*
