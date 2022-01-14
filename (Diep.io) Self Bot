@@ -1,0 +1,118 @@
+// ==UserScript==
+// @name         (Diep.io) Self Bot
+// @author       shlong#2873
+// @match        *://diep.io/*
+// @grant        unsafeWindow
+// ==/UserScript==
+
+/*
+(FARMING ONLY RIGHT NOW)
+note once enemy targetting is public itll only work in ffa and sandbox for a while.
+farming is also the only functionality open to the public for now.
+
+how to use:
+press f to toggle on and off lmfao
+
+*/
+
+(() => {
+    "use strict";
+    const context = CanvasRenderingContext2D.prototype;
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const colors = {
+        square: "#ffe869",
+        triangle: "#fc7677",
+        pentagon: "#768dfc",
+        redEnemy: "#f14e54"
+    }
+    let bot = false;
+
+    class _brain {
+        constructor() {
+            this._sx;
+            this._sy;
+            this._ex;
+            this._ey;
+            this.findShape();
+            //this.findEnemy();
+        }
+        hook(target, callback) {
+            // thank you cazka
+            const context = CanvasRenderingContext2D.prototype;
+            context[target] = new Proxy(context[target], {
+                apply(type, _this, args) {
+                    callback(_this, args);
+                    return type.apply(_this, args);
+                },
+            });
+        }
+        get sx() {
+            return this._sx;
+        }
+        get sy() {
+            return this._sy;
+        }
+        get ex() {
+            return this._ex;
+        }
+        get ey() {
+            return this._ey;
+        }
+        findShape() {
+            this.hook("moveTo", (_this, args) => {
+                if (_this.fillStyle == colors.square) {
+                    this._sx = args[0];
+                    this._sy = args[1];
+                }
+                if (_this.fillStyle == colors.triangle) {
+                    this._sx = args[0];
+                    this._sy = args[1];
+                }
+                if (_this.fillStyle == colors.pentagon) {
+                    this._sx = args[0];
+                    this._sy = args[1];
+                }
+            });
+        }
+        // not public yet
+        findEnemy() {}
+    }
+
+    class _interactions {
+        moveto(x, y, radius) {
+            x < window.innerWidth / 2 + radius ? unsafeWindow.input.keyDown(37) : unsafeWindow.input.keyUp(37);
+            x > window.innerWidth / 2 - radius ? unsafeWindow.input.keyDown(39) : unsafeWindow.input.keyUp(39);
+            y < window.innerHeight / 2 + radius ? unsafeWindow.input.keyDown(38) : unsafeWindow.input.keyUp(38);
+            y > window.innerHeight / 2 - radius ? unsafeWindow.input.keyDown(40) : unsafeWindow.input.keyUp(40);
+        }
+        shootat(x, y) {
+            unsafeWindow.input.mouse(x, y);
+            unsafeWindow.input.keyDown(32);
+        }
+        // later
+        upgrade() {}
+    }
+    let interactions = new _interactions();
+    let brain = new _brain();
+
+    function gameLoop() {
+        if (bot) {
+            interactions.moveto(brain.sx, brain.sy, /* you can adjust how close it can get to shapes here */ 50);
+            interactions.shootat(brain.sx, brain.sy);
+        }
+        window.requestAnimationFrame(gameLoop);
+    }
+    gameLoop();
+
+    document.onkeydown = (e) => {
+        if (e.code == "KeyF") {
+            bot = !bot;
+            unsafeWindow.input.keyUp(37);
+            unsafeWindow.input.keyUp(39);
+            unsafeWindow.input.keyUp(38);
+            unsafeWindow.input.keyUp(40);
+            unsafeWindow.input.keyUp(32);
+        }
+    }
+})();
