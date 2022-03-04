@@ -27,7 +27,7 @@
             websocket.onopen = () => {
                 websocket.send(new Uint8Array([5]));
                 websocket.send(new Uint8Array([4, 2, 0]));
-                GM_addValueChangeListener("WsPackets", (prostate /*literally useless and doesnt do anything but okay*/) => {
+                GM_addValueChangeListener("WsPackets", (e) => {
                     websocket.send(new Uint8Array(GM_getValue("WsPackets")));
                 });
             }
